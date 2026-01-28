@@ -71,15 +71,17 @@ curl http://localhost:8081/v1/embeddings \
 
 ## 🔗 Connecting to n8n (Docker)
 
-If you are running **n8n** in a Docker container on the same machine, you cannot use `localhost`. You must use the host's Docker IP (usually `172.17.0.1` on Linux).
+If you are running **n8n** in a Docker container on the same machine, you cannot use `localhost`. Instead, use `host.docker.internal` to refer to your host machine.
+
+> **Note for Linux Users:** If `host.docker.internal` does not resolve, you may need to use the Docker bridge IP (usually `172.17.0.1`) or add `--add-host=host.docker.internal:host-gateway` to your n8n Docker configuration.
 
 ### Chat Node (OpenAI Chat Model)
-*   **Base URL:** `http://172.17.0.1:8080/v1`
+*   **Base URL:** `http://host.docker.internal:8080/v1`
 *   **API Key:** `sk-no-key-required` (Enter anything, it's ignored)
-*   **Model:** `qwen` (or leave default)
+*   **Model:** `qwen`
 
 ### Embeddings Node (OpenAI Embeddings)
-*   **Base URL:** `http://172.17.0.1:8081/v1`
+*   **Base URL:** `http://host.docker.internal:8081/v1`
 *   **API Key:** `sk-no-key-required`
 
 ---
