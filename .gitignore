@@ -1,0 +1,9 @@
+# Models
+models/*.gguf
+*.gguf
+
+# OS metadata
+.DS_Store
+
+# Temporary
+test_api.sh
